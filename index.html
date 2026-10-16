@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reel Seats – Movie Ticket Booking</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1>Reel Seats</h1>
+    <p class="count-pill">Active bookings: <strong id="bookingCount">0</strong></p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="moviesHead">
+      <h2 id="moviesHead">Now showing</h2>
+      <div id="movieList" class="movie-list"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="formHead">
+      <h2 id="formHead">Book tickets</h2>
+      <form id="bookingForm" novalidate>
+        <label for="movie">Movie</label>
+        <select id="movie"></select>
+
+        <label for="showtime">Showtime</label>
+        <select id="showtime"></select>
+
+        <label for="quantity">Tickets</label>
+        <input id="quantity" type="text" inputmode="numeric" placeholder="1 to 10" autocomplete="off">
+
+        <label for="email">Email for confirmation</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+
+        <div class="summary" aria-live="polite">
+          <span id="summaryText">Select a movie to see the price.</span>
+          <strong id="summaryTotal">₹0</strong>
+        </div>
+
+        <p id="message" class="message" role="alert" hidden></p>
+
+        <div class="actions">
+          <button type="submit" id="bookBtn">Book &amp; email ticket</button>
+          <button type="button" id="resetBtn" class="ghost">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel wide" aria-labelledby="bookingsHead">
+      <div class="bookings-head">
+        <h2 id="bookingsHead">Your bookings</h2>
+        <input id="search" type="search" placeholder="Search by movie, email or ID" aria-label="Search bookings">
+      </div>
+      <ul id="bookingList" class="booking-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
